@@ -9,6 +9,9 @@ function Dashboard() {
 
   const token = localStorage.getItem("token");
 
+  // BACKEND URL
+  const API = "https://levelup-backend-a659.onrender.com";
+
   // AVATAR SYSTEM
   const getAvatar = (level) => {
 
@@ -24,7 +27,7 @@ function Dashboard() {
     try {
 
       const res = await axios.get(
-        "http://localhost:8000/api/habits",
+        `${API}/api/habits`,
         {
           headers: {
             Authorization: `Bearer ${token}`
@@ -44,7 +47,7 @@ function Dashboard() {
     try {
 
       const res = await axios.get(
-        "http://localhost:8000/api/user/me",
+        `${API}/api/user/me`,
         {
           headers: {
             Authorization: `Bearer ${token}`
@@ -72,7 +75,7 @@ function Dashboard() {
     try {
 
       const res = await axios.post(
-        "http://localhost:8000/api/habits",
+        `${API}/api/habits`,
         { title: habit },
         {
           headers: {
@@ -96,7 +99,7 @@ function Dashboard() {
     try {
 
       await axios.put(
-        `http://localhost:8000/api/habits/${id}/complete`,
+        `${API}/api/habits/${id}/complete`,
         {},
         {
           headers: {
@@ -122,7 +125,7 @@ function Dashboard() {
     try {
 
       await axios.delete(
-        `http://localhost:8000/api/habits/${id}`,
+        `${API}/api/habits/${id}`,
         {
           headers: {
             Authorization: `Bearer ${token}`
