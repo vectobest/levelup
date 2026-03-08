@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 function Register() {
 
@@ -48,44 +48,60 @@ function Register() {
 
   return (
 
-    <div style={{ textAlign:"center", marginTop:"100px" }}>
+    <div className="flex items-center justify-center min-h-screen bg-slate-900">
 
-      <h1>Register</h1>
+      <div className="bg-slate-800 p-8 rounded-xl shadow-lg w-80">
 
-      <form onSubmit={handleSubmit}>
+        <h1 className="text-3xl font-bold text-center mb-6 text-white">
+          Register 🚀
+        </h1>
 
-        <input
-          type="text"
-          name="name"
-          placeholder="Name"
-          onChange={handleChange}
-        />
+        <form onSubmit={handleSubmit} className="space-y-4">
 
-        <br /><br />
+          <input
+            type="text"
+            name="name"
+            placeholder="Name"
+            onChange={handleChange}
+            className="w-full p-2 rounded bg-slate-700 text-white outline-none"
+          />
 
-        <input
-          type="email"
-          name="email"
-          placeholder="Email"
-          onChange={handleChange}
-        />
+          <input
+            type="email"
+            name="email"
+            placeholder="Email"
+            onChange={handleChange}
+            className="w-full p-2 rounded bg-slate-700 text-white outline-none"
+          />
 
-        <br /><br />
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            onChange={handleChange}
+            className="w-full p-2 rounded bg-slate-700 text-white outline-none"
+          />
 
-        <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          onChange={handleChange}
-        />
+          <button
+            type="submit"
+            className="w-full bg-blue-500 hover:bg-blue-600 p-2 rounded text-white font-semibold"
+          >
+            Register
+          </button>
 
-        <br /><br />
+        </form>
 
-        <button type="submit">
-          Register
-        </button>
+        <p className="text-center text-gray-400 mt-4">
+          Already have an account?{" "}
+          <Link
+            to="/login"
+            className="text-blue-400 hover:underline"
+          >
+            Login
+          </Link>
+        </p>
 
-      </form>
+      </div>
 
     </div>
 
