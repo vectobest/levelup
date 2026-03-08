@@ -1,5 +1,5 @@
 import { useState } from "react";
-import API from "../api/api";
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 function Login() {
@@ -10,6 +10,8 @@ function Login() {
     email: "",
     password: ""
   });
+
+  const API = "https://levelup-backend-a659.onrender.com";
 
   const handleChange = (e) => {
     setForm({
@@ -23,7 +25,10 @@ function Login() {
 
     try {
 
-      const res = await API.post("/auth/login", form);
+      const res = await axios.post(
+        `${API}/api/auth/login`,
+        form
+      );
 
       const token = res.data.token;
 
@@ -37,7 +42,10 @@ function Login() {
 
       alert("Login failed");
 
+      console.log(err);
+
     }
+
   };
 
   return (
@@ -77,10 +85,27 @@ function Login() {
 
         </form>
 
+        {/* REGISTER LINK */}
+
+        <p className="text-center text-gray-400 mt-4">
+
+          Don't have an account?{" "}
+
+          <a
+            href="/register"
+            className="text-blue-400 hover:underline"
+          >
+            Register
+          </a>
+
+        </p>
+
       </div>
 
     </div>
+
   );
+
 }
 
 export default Login;
