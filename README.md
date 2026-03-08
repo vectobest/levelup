@@ -2,10 +2,13 @@
 
 LevelUp is a full-stack MERN application that helps users build habits using a gamified system with XP, streaks, and levels.
 
-## 🚀 Live Demo
+# LevelUp Habit Tracker 🎮
 
-Frontend: https://levelup.vercel.app  
-Backend: https://levelup-backend-a659.onrender.com
+Live Website:  
+https://levelup-nu-ten.vercel.app
+
+Backend API:  
+https://levelup-backend-a659.onrender.com
 
 ## 🛠 Tech Stack
 
