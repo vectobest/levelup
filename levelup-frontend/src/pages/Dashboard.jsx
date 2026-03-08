@@ -1,7 +1,10 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function Dashboard() {
+
+  const navigate = useNavigate();
 
   const [habit, setHabit] = useState("");
   const [habits, setHabits] = useState([]);
@@ -9,8 +12,13 @@ function Dashboard() {
 
   const token = localStorage.getItem("token");
 
-  // BACKEND URL
   const API = "https://levelup-backend-a659.onrender.com";
+
+  // LOGOUT
+  const logout = () => {
+    localStorage.removeItem("token");
+    navigate("/login");
+  };
 
   // AVATAR SYSTEM
   const getAvatar = (level) => {
@@ -145,9 +153,22 @@ function Dashboard() {
 
     <div className="min-h-screen bg-slate-900 text-white p-10">
 
-      <h1 className="text-4xl font-bold text-center mb-6">
-        Dashboard 🎮
-      </h1>
+      {/* HEADER */}
+
+      <div className="flex justify-between items-center mb-6">
+
+        <h1 className="text-4xl font-bold">
+          Dashboard 🎮
+        </h1>
+
+        <button
+          onClick={logout}
+          className="bg-red-500 px-4 py-2 rounded hover:bg-red-600"
+        >
+          Logout 🚪
+        </button>
+
+      </div>
 
       {/* USER LEVEL */}
 
